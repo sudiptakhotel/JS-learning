@@ -18,7 +18,7 @@ console.log(id); // it is a number type
 console.log(typeof true); // it is a boolean type data
 
 //dataype of null and undefined
-//diff b/w null and undefined - null meand empty but undefined means it ios declared only
+//diff b/w null and undefined - null meand empty but undefined means it is declared only
 let city;
 let state = null;
 console.table([typeof city , typeof state]); // undefined , object

@@ -22,7 +22,36 @@
 // console.log(employee);
 // console.log(typeof(employee)); //object
 
-let myFunction = function myFunction(){
-    console.log("Hello world");
-}
-console.log(typeof(myFunction)); // function
+// let myFunction = function myFunction(){
+//     console.log("Hello world");
+// }
+// console.log(typeof(myFunction)); // function
+
+//practice to write object and function
+//object
+let employee = {
+    name: "Sudipta Khotel",
+    empId: 101,
+    contactNumber: 12234566776,
+};
+//print employee object
+// console.log(employee);
+
+//print a specific property from object
+// console.log("Employee contact number : "+employee.contactNumber);
+
+//function
+let emp = employee.name;
+// function myFunction (emp){
+//     console.log("Employee name is : "+emp);
+// };
+// myFunction();
+
+//symbol
+//it is a special datatype used mostly in react to define an unique value
+const id = Symbol("HELLO");
+// console.log(id);
+// console.log(typeof(id));
+
+let nameArr = ["sudipat", "camelia" , "rahul"];
+console.log(nameArr);
