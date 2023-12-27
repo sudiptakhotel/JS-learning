@@ -1,4 +1,4 @@
-//Here we are going to cover everything regarding String
+//Here we are going to cover important String functions
 //2 ways to declare String
 //1st
 let myNickName = "Rahul";
@@ -112,4 +112,43 @@ let myRealName = new String("Sudipta Khotel");
 // console.log(`name : ${arr[arr.length-2]}`);
 
 //----------------------------
-//startsWith() -->
+//startsWith() --> it verifes if the String is started with the given input String . 
+
+// let phrase = "I am a strong man";
+// console.log(phrase.startsWith("I am b"));
+
+//------------------------------------------------
+
+
+//substring() -- > this function is used to get the desired part of string by using startindex and endIndex . Although endIndex is not mandatory . 
+
+//to see th diff b/w substring() and slice() please visit documentation - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring#differences_between_substring_and_slice
+
+// let myName = "Sudipta Khotel";
+// // console.log(`substring() --> ${myName.substring(8)}`);
+
+// function nameSplitter(name){
+//     let firstName = name.split(" ")[0];
+//     let lastName = name.split(" ")[1];
+//     console.log(`firstName : ${firstName}`);
+//     console.log(`lastName : ${lastName}`);
+// };
+// nameSplitter("Sudipta Khotel");
+
+//------------------------------------
+
+//toLocaleLowerCase() --> it converts the String to lowercase String based on give locale language specific
+
+// let place = "İstanbul";
+// console.log(`place name in english US - ${place.toLocaleLowerCase("en-us")}`);
+
+//--------------------------------------
+// trim() --> it trims whitespace from both the end . for specific end trimming we have trimStart() and trimEnd()
+// let emailID = "     sudiptakhotel4@gmail.com  "
+// console.log(`emailId : ${emailID.trim()}`);
+
+//------------------------------
+//search() --> it searches the string in the desired string and returns the first index of the match found
+
+// let str = "Messi is GOAT"
+// console.log(str.search("GOAT"));
