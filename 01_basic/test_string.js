@@ -24,4 +24,3 @@ let str1 = "𠮷𠮾";
 // console.log(str.replace("world","universe"));
 
 console.log(str.search("world"));
-console.log(str.concat());
