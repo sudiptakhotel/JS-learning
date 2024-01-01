@@ -8,7 +8,7 @@ let accountCity = "Kolkata";
 
 //if we do not intialize a varibale and just declare it JS will treat it as undefined
 let accountPhoneNumber;
-//this also possible in JS to declare/initialize variable without var/let.
+//this also possible in JS to declare/initialize variable without var/let/const keyword .
 //but this is highly unprofessional do not use it.
 accountState = "WestBengal";
 
