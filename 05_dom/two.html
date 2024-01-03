@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learing</title>
+    <style>
+        body{
+            background-color: #212121;
+            color : #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+
+        <!-- this is a comment to understand childNodes -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+
+    <script>
+
+        //selecting parent
+        const parent = document.querySelector(".parent");
+        //console.log(parent);
+
+        //lets select the childrent
+        //this childrem returns a html collection[]
+        let children = parent.children;
+        //console.log(children);
+
+        //so we can access the child by using indexes as it is html collection
+        //change the color of 3rd children
+        children[2].style.color = "orange";
+
+        //as we know html collection does not have forEach() but we can use the basic for loop to iterate
+
+        // for (let i = 0; i < children.length; i++) {
+        //     console.log(children[i].innerHTML);
+            
+        // }
+
+        //we have also different property to reach the first and last child of parent
+
+        const firstChildItem = parent.firstElementChild;
+        // console.log(firstChildItem);
+        // //lets move to the next child
+        // console.log(firstChildItem.nextElementSibling.nextElementSibling); //move to wednesday
+
+        //moving to previous child is also possible by using previousElementSibling
+        // console.log(firstChildItem.nextElementSibling.previousElementSibling);
+
+        //last child
+        const lastChildItem = parent.lastElementChild;
+        //console.log(lastChildItem);
+        //console.log(lastChildItem.nextElementSibling); //reeturns null because it is the last child
+
+        //we can also reach to parent from any child of it
+        //but why we need this if we have querySelector ?
+        //see everytime when we do document.querySelector() it traverse the whole document tree and returns the target element so it is an expensive process to be followed every time
+
+        //console.log(lastChildItem.parentElement); -> I reach to parent class div
+
+        // for (let i = 0; i < children.length; i++) {
+           
+        //     if (children[i].innerHTML === "Tuesday") {
+        //         children[i].innerHTML = "2";
+        //         break;
+        //     }
+             
+        // }
+
+        //console.log(children);
+
+        // console.log(typeof(children[1].innerHTML));
+        // console.log(typeof "Tuesday");
+
+        //+++++++++++++Interesting++++++++++++++++++++
+
+        //childNode
+
+        //example - 
+    //     <div class="parent">
+
+    //    <!-- this is a comment to understand childNodes -->
+    //        <div class="day">Monday</div>
+    //        <div class="day">Tuesday</div>
+    //        <div class="day">Wednesday</div>
+    //        <div class="day">Thursday</div>
+    //     </div>
+
+    //how childNodes work ?
+    //see in DOM every element is a tree structure where multiple nodes are present . To understand its checkout chai aur code javascript part -2 . Browser works on childNodes
+
+
+        // console.log("NODES" , parent.childNodes);
+
+        
+
+
+    </script>
+</body>
+</html>
