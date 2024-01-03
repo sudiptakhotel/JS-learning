@@ -67,6 +67,7 @@
         const colorArr = ["red" , "green" , "yellow" , "blue" , "orange"];
         let counter = 0;
         let boxCount = 0;
+        let marginLeftValue = 0;
 
         function colorHunt(){
             if(counter == colorArr.length) counter = 0;
@@ -84,18 +85,18 @@
 
             //style
             div.style.backgroundColor = colorHunt();
-            div.style.height = "100px";
-            div.style.width = "100px";
+            div.style.height = "200px";
+            div.style.width = "200px";
 
             //position
-            let marginLeftValue;
+            
             if(boxCount === 0){
 
                 marginLeftValue = 0;
-                boxCount++;
+                
 
             }else{
-                marginLeftValue = marginLeftValue + (boxCount*100);
+                marginLeftValue = (boxCount*200);
             }
             boxCount++;
 
@@ -105,7 +106,7 @@
             document.body.appendChild(div);
         }
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             designPage();
         }
         //designPage();
