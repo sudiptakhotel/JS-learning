@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java scrip event</title>
+    <style>
+        body{
+            background-color: #414141;
+            color: aliceblue;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Amazing images</h2>
+    <ul id="images">
+        <li>
+            <img src="https://media.istockphoto.com/id/1404885250/photo/mahabaleshwar-and-panchagani-nature-and-hill-areas.jpg?s=1024x1024&w=is&k=20&c=fQykGjPmlabwiSYYgvanP97qMZD7dT_8v81iGqWdimU=" alt="mountain">
+        </li>
+        <li>
+            <img src="https://media.istockphoto.com/id/1194408359/photo/india-flag-flying-high-blue-sky-tricolour-flag.jpg?s=1024x1024&w=is&k=20&c=AGZkMhkyB4tgjLhYEKT9XPxEN7eOdzNUgdZyFH7XzdI=" alt="" id="flag">
+        </li>
+        <li>
+            <img src="https://media.istockphoto.com/id/1365550676/photo/map-of-india-on-digital-display.jpg?s=1024x1024&w=is&k=20&c=GLpYHo6wlAR4SV3AGcaHKBHNR6xna7Cx80PKPt03gvo=" alt="">
+        </li>
+        <li>
+            <a href="https://www.google.com" style="color: aliceblue;">google</a>
+        </li>
+
+    </ul>
+
+    <script>
+        //lets see different ways to add events to html elements
+        //1st - > add directly inside the html element (inline)
+        //this approach is extremely unprofessional and we should not use it
+
+        // 2nd - > this is also not recommended because it gives us less feature in comparison to addEventListener()
+        // document.querySelector("#flag").onclick = function(){
+        //     alert("clicked the image by 2nd approach");
+        // }
+
+        //3rd - > addEventListener() most famous and modern approach to add event
+
+        // document.getElementById("flag").addEventListener("click" , function(){
+        //     alert("image clicked by 3rd approach");
+        // },false)
+
+        //lets understand event propagation
+
+        document.getElementById("images").addEventListener("click" , function(e){
+            e.stopPropagation();
+            console.log("outer image div clicked");
+        } , true)
+
+        document.getElementById("flag").addEventListener(("click") , function(e){
+            //I want to stop the bubbling to go to outer div
+            //e.stopPropagation();
+            console.log("inner flag image clicked");
+        } , true)
+
+        //lets take a project that whenever I click on any image that image should be removed
+
+        // document.querySelector("a").onclick = function(e){
+        //     e.preventDefault();
+        // }
+        // document.getElementById("images").addEventListener("click" , function(e){
+        //     //console.log(e.target);
+        //     let removeIt = e.target.parentNode;
+        //     //we can also do this 
+        //     removeIt.parentNode.removeChild(removeIt);
+        //     console.log(removeIt);
+        //     //removeIt.remove();
+        // } , false)
+
+    </script>
+</body>
+</html>

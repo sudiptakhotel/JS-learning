@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Random color example — event handler attribute</title>
+    <style>
+      .container{
+        height: 200px;
+        width: 200px;
+        background-color: blue;
+     }
+      .inside{
+        height: 100px;
+        width: 100px;
+        background-color: coral;
+      }
+    </style>
+  </head>
+  <body style="background-color: #414141;">
+
+    <div class="container" id="container">
+      <div class="inside" id = "inside-div"></div>
+    </div>
+<!-- 
+    <input type="text" id="textField" />
+    <div id="output"></div> -->
+
+    <!-- <button>Change color</button> -->
+    <script>
+      // const btn = document.querySelector('button');
+
+      // function random(number) {
+      //   return Math.floor(Math.random() * (number+1));
+      // }
+
+      // btn.addEventListener('click', (event) => {
+      //   const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+      //    //document.body.style.backgroundColor = rndCol;
+      //    //console.log(event);
+      //    //console.log(event.target);
+      //   //alert("Its a simple button")
+      //   event.target.style.backgroundColor = rndCol;
+      // });
+
+      //keydown
+
+      // const textbox = document.querySelector("#textField");
+      // const oputput = document.querySelector("#output");
+      
+      // textbox.addEventListener("keydown" , (event)=>{
+      //   oputput.style.color = "aliceblue";
+      //   oputput.textContent = `you have enterd ${event.key}`;
+      //   console.log(event);
+      // } , true)
+
+      //event bubbling and stopPropagation()
+
+      // const div = document.createElement("div");
+      // div.className = "container";
+      // const button = document.createElement("button");
+      // button.id = "btn";
+      // button.innerHTML = "click me";
+      // div.appendChild(button);
+      // document.body.appendChild(div);
+      // const para = document.createElement("p");
+      // //para.className = "output";
+      // document.body.appendChild(para);
+      
+
+      //so I have created a div and inside that there is a button
+      //lets see event bubbling
+      //normal
+      // button.addEventListener("click" , function(){
+      //   console.log("button clicked");
+      // })
+
+      //bubbling
+      // div.addEventListener("click" , function(){
+      //   console.log(`inside div clicked`);
+      // })
+      // button.addEventListener("click" , function(event){
+      //   //stopping to propagate event
+      //   event.stopPropagation();
+      //   console.log(`button clicked`);
+
+      // })
+      // document.querySelector("body").addEventListener("click" , function(){
+      //   console.log(`body clicked`);
+      // })
+
+      //so as per the propagation event will propagate from  first button , div and then body .
+      
+
+      //event capture
+      // function handleEvent(event){
+      //   para.textContent+= `you clicked the ${event.currentTarget.tagName} element\n`;
+      // }
+      // div.addEventListener("click" , handleEvent , true);
+      // button.addEventListener("click" , handleEvent, true);
+      // document.querySelector("body").addEventListener("click" , handleEvent , true );
+
+      //event propagation has 2 types event bubbling and event capture . By default event bubbling is there but to change this to event capture we need to pass true to the addEventHandler()
+
+      //event capture is the opposite of bubbling where propagation starts from outside to inside
+
+      //difference between target and currentTarget
+      const container = document.querySelector(".container");
+      const inside = document.querySelector(".inside");
+      container.addEventListener("click" , function(event){
+        console.log(event.target.id);
+        console.log(event.currentTarget.id);
+      })
+      
+      </script>
+  </body>
+</html>
