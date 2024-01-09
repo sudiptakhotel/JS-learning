@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random user API reading</title>
+</head>
+<body>
+    
+    <script>
+        //create xhr client
+        const xhr = new XMLHttpRequest();
+        const apiUrl = "https://randomuser.me/api/";
+        xhr.open("GET" , apiUrl);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                const dataReceive = this.responseText;
+                const data = JSON.parse(dataReceive);
+                console.log(`Name : ${data.results[0].name.first}  ${data.results[0].name.last}`);
+                console.log(`DOB : ${data.results[0].dob.date}`);
+                console.log(`phoneNumber : ${data.results[0].phone}`);
+            }
+        }
+        xhr.send();
+    </script>
+</body>
+</html>
