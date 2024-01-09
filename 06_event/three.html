@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval , setTimeout</title>
+</head>
+<body>
+    <h1>Learning coding</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        //stTimeout()
+        //so after 3 seconds h1 will change
+        // const changeHeader = function(){
+        //     document.querySelector("h1").innerHTML = "Learning javascrtipt"
+        // }
+        // const timer = setTimeout(changeHeader , 3000)
+        // //I want to stop the changes by clicking stop button
+        // document.querySelector("#stop").addEventListener("click" , function(event){
+        //     clearTimeout(timer);
+        //     console.log("STOPPED");
+        //     console.log(event.target.tagName);
+        // })
+
+        //setInterval()
+        
+        const continuePrint = function (input){
+            //console.log("start button clicked");
+            console.log(`${input} , ${Date.now()}`);
+        }
+        let interval;
+        const start = document.querySelector("#start")
+        start.addEventListener("click" , function(){
+            console.log("STARTED");
+            interval = setInterval(continuePrint , 2000 , "Hi");;
+
+        });
+        const end = document.querySelector("#stop");
+        end.addEventListener("click" , function(){
+            console.log("STOPPED");
+            clearInterval(interval);
+        })
+        
+  
+    </script>
+</body>
+</html>
