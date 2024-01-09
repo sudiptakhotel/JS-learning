@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHTTP request</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //create a card inside that put the image of API response
+        const myDiv = document.createElement("div");
+        myDiv.className = "card";
+        myDiv.style.height = "300px";
+        myDiv.style.width = "200px";
+        const picture = document.createElement("img");
+        picture.id = "myImage";
+        picture.style.height = "200px";
+        picture.style.width = "200px";
+        myDiv.appendChild(picture);
+        const name = document.createElement("h2");
+        myDiv.appendChild(name);
+        myDiv.style.textAlign = "center";
+        myDiv.style.border = "2px solid black";
+        document.body.appendChild(myDiv);
+        
+        
+        
+        
+
+
+
+        //create xhr client , state -> 0
+        const xhr = new XMLHttpRequest();
+        //console.log(xhr.readyState); //0
+        //lets open() it show that we can send the client
+        const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+        xhr.open("GET" , requestUrl);
+        //console.log(xhr.readyState);
+
+        //lets track all the state changes of our xhr client
+        //so , whenever our xhr clients's state changes this onreadystatechange() will execute
+        xhr.onreadystatechange = function(){
+            //console.log(xhr.readyState);
+            //we got responseText from the API call
+            if(xhr.readyState === 4){
+                //console.log(this.responseText);
+                //store the response in a variable
+                const data = this.responseText;
+                //console.log(typeof data); //String
+                //most of the time response will come in String format
+                //we need to parse it to JSON means object
+                const dataJSON = JSON.parse(data);
+                //console.log(dataJSON.followers);
+                //lets show the card
+                console.log(dataJSON);
+                const imageUrl = dataJSON.avatar_url;
+                picture.setAttribute("src" , imageUrl);
+                name.innerHTML = dataJSON.name;
+                
+            }
+            
+        }
+        //lets send the request and get the response header
+        xhr.send();
+        
+    </script>
+</body>
+</html>
