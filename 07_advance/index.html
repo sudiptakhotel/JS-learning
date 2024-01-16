@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding promise</title>
+</head>
+<body style="background-color: #414141;">
+    
+
+    <script>
+        function getData(userId){
+            return new Promise(function(resolve , reject){
+                setTimeout(()=>{
+                    let flag = false;
+                    if(flag){
+                        console.log("data" , userId);
+                        resolve("success");
+                    }else reject("error occured");
+                    
+                } , 10000)
+            })
+        }
+
+        //consume promise
+        let promise = getData(1234);
+        promise
+        .then( (res)=>{
+            console.log(res);
+        })
+        .catch( (err)=>{
+            console.log(err);
+        })
+
+    </script>
+</body>
+</html>

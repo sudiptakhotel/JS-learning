@@ -58,6 +58,43 @@
 
 //Now to handle this callback hell we have promises. Callback is good to use but not callbackhell.
 
+function getDetailsFromDb(uesrId , nextCall){
+    setTimeout( () =>{
+        console.log("data fetched for id : " , uesrId);
+        if(nextCall){
+            nextCall();
+        }
+        nextCall;
+    } , 3000)
+}
+// getDetailsFromDb(111 , ()=>{
+//     getDetailsFromDb(222 , ()=>{
+//         getDetailsFromDb(300)
+//     });
+// });
+// getDetailsFromDb(222);
+
+//lets solve this by using promise
+function getPromise(userId){
+    return new Promise(function(resolve , reject){
+        setTimeout( ()=>{
+            console.log("data fectched for: " , userId);
+            resolve("success");
+        } , 3000)
+    })
+}
+getPromise(111)
+.then( (res)=>{
+    console.log(res);
+    getPromise(222)
+    .then( ()=>{
+        console.log(res);
+        getPromise(333)
+        .then(()=>{
+            console.log(res);
+        })
+    })
+})
 
 
 
