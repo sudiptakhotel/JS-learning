@@ -83,18 +83,28 @@ function getPromise(userId){
         } , 3000)
     })
 }
-getPromise(111)
-.then( (res)=>{
-    console.log(res);
-    getPromise(222)
-    .then( ()=>{
-        console.log(res);
-        getPromise(333)
-        .then(()=>{
-            console.log(res);
-        })
-    })
-})
+// getPromise(111)
+// .then( (res)=>{
+//     console.log(res);
+//     getPromise(222)
+//     .then( ()=>{
+//         console.log(res);
+//         getPromise(333)
+//         .then(()=>{
+//             console.log(res);
+//         })
+//     })
+// })
+
+//another way of writing consume and it is more professional w.r.t promise chaining
+// getPromise(1234)
+// .then( ()=> {
+//     //that mean when getPromise(1234) resolve then call for next 
+//     return getPromise(12345);
+// })
+// .then((res)=>{
+//     console.log(res);
+// })
 
 
 
