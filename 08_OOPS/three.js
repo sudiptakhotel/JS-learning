@@ -1,6 +1,6 @@
 //here we are going to see prototype , inheritance and how js is using sugar coating by giving class , inheritence or other OOPS concept
 
-//so as we know everything in js is an object and also we know object has protype which is basically use in inheritance
+//so as we know everything in js is treated as an object and also we know object has protype which is basically use in inheritance means prototype chaining
 
 //We can set any property or method inside prototype of any objet such as Array , String , function etc.
 
