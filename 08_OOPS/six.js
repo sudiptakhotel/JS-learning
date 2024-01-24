@@ -1,5 +1,5 @@
 //class inheritance
-// class User {
+//class User {
 //     constructor(username , password){
 //         this.username = username;
 //         this.password = password
@@ -11,7 +11,7 @@
 //     }
 // }
 
-// //inheritance by using extends keyword
+// // //inheritance by using extends keyword
 
 // class Admin extends User {
 //     constructor(username , password , email){
@@ -38,32 +38,38 @@
 //user1.logDetails(); //this is not possible because it is reverse inheritance and that is not possible.
 
 
-//behind the scene
-
-function User (username , password){
+//behind the scene --> js prototypal behavior
+function user(username , password){
     this.username = username;
     this.password = password;
 
-    
-}
-User.prototype.showDetails = function(){
-    console.log(`username : ${this.username} , pasword : ${this.password}`);
-}
-User.prototype.logDetails = function() {
-    console.log(`detals logged successfully`);
+    this.showDetails = function(){
+        console.log(`username : ${this.username} , password : ${this.password}`);
+    }
 }
 
+user.prototype.logMe = function(){
+    console.log(`Logged details successfully`);
+}
 
-function Admin(username , password , email){
-    //username and password is set from User
-    User.call(this , username,password);
+function admin(username , password , email){
+    //username and password is going to set from user , will use call()
+    user.call(this , username,password);
     this.email = email;
 
-    
 }
 
-Object.setPrototypeOf(User , Admin);
 
-const admin1 = new Admin("sudipta" , 101 , "sk@google.com");
+//interesting part
+//prototypal chaining
+admin.prototype = Object.create(user.prototype);
+admin.prototype.logAdmin = function(){
+    console.log(`email - ${this.email}`);
+}
+admin.prototype.constructor = admin;
+
+const admin1 = new admin("messi" , 10 , "goat@goat.com");
 admin1.showDetails();
-//need to understand how to make it happen
+
+console.log(admin1.constructor);
+admin1.logAdmin();

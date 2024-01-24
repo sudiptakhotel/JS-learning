@@ -2,7 +2,7 @@
 
 //so as we know everything in js is treated as an object and also we know object has protype which is basically use in inheritance means prototype chaining
 
-//We can set any property or method inside prototype of any objet such as Array , String , function etc.
+//We can set any property or method inside prototype of any object such as Array , String , function etc.
 
 //Everything is pass from Object in js so if we create an array , string or function or any other object by default they have the access of Object's prototype
 
@@ -10,7 +10,7 @@
 
 //I want to add a method in String object which will be available whenever I create any String
 
-//I will go inside the prototype of String and declare me method
+//I will go inside the prototype of String and declareMe() method
 
 // String.prototype.display = function(){
 //     //here this is used to give current context that means "jisne bulaye unko"

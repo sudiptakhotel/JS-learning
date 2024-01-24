@@ -14,7 +14,7 @@ function createPlayer(playerName , jersey){
 
 //so I want to add some method into the prototype of the createPlayer() so that other instances which is created by using new can use them
 
-//this showMe() is a shared method and can be used by other instances of createPlayer() , because when we intialize a function by new keyword new make linking of newly created object's prototype to it's parent means here createPlayer() prototype . In this way protypy chaining or inheritence extablishes so newly created object get access of the createPlayer() properties and method and properties or method which are injected inside protptype.
+//this showMe() is a shared method and can be used by other instances of createPlayer() , because when we intialize a function by new keyword new make linking of newly created object's prototype to it's parent means here createPlayer() prototype . In this way protypy chaining or inheritence establishes so newly created object get access of the createPlayer() properties and method and properties or method which are injected inside protptype.
 
 createPlayer.prototype.showMe = function(){
     console.log(`Player jersey number is : ${this.jersey}`);
