@@ -70,25 +70,126 @@
 
 //1st - > using value
 
-const obj = {};
-Object.defineProperty(obj , "prop1" , {
-    value : "property 1",
-    enumerable : true
-})
+// const obj = {};
+// Object.defineProperty(obj , "prop1" , {
+//     value : "property 1",
+//     enumerable : true
+// })
 
 //2nd - > by using getter and setter
 
-let value = "property 2"
-Object.defineProperty(obj , "prop2" , {
-    get(){
-        return value;
-    },
-    // set(newVal){
-    //     value = newVal;
-    // },
-    enumerable : true,
+// let value = "property 2"
+// Object.defineProperty(obj , "prop2" , {
+//     get(){
+//         return value;
+//     },
+//     // set(newVal){
+//     //     value = newVal;
+//     // },
+//     enumerable : true,
     
-})
+// })
 
 //obj.prop2 = "property 3"; its not gonna work because set() is not present in the defineProperty()
-console.log(obj.prop2);
+//console.log(obj.prop2);
+
+/* 
+    we can not use both the ways in same time , that is not possible
+*/
+
+/*
+    configurable attribute --> If configurable is false then we can not delete the certain property of the object . And also except value and writable all other attribute's value also can not be changed
+*/
+
+//example
+//enabling strict mode to see the error
+// "use strict";
+
+// const obj = {};
+// Object.defineProperty(obj , "prop1", {
+//     value : 12,
+//     configurable : false
+// })
+
+//reminder - by default writable and other properites are already set to false
+
+// Object.defineProperty(obj , "prop1" , {
+//     configurable : true
+// }) --> Error
+
+// Object.defineProperty(obj , "prop1" , {
+//     enumerable : true
+// })
+
+//obj.prop1 = 23; because by default writable is false
+
+//delete obj.prop1; can not delete because comfigurable is false
+
+
+// let val = 10;
+// Object.defineProperty(obj , "prop2" , {
+//     get(){
+//         return val;
+//     },
+//     set(new_val){
+//         val = new_val;
+//     },
+//     configurable : true
+// })
+
+// console.log(obj.prop2);
+// obj.prop2 = 20;
+// console.log(obj.prop2);
+
+// delete obj.prop2;
+// console.log("delete prop2");
+// console.log(obj.prop2);  not available
+
+
+//non-writable and configurable
+
+// "use strict";
+// const myObj = {};
+// Object.defineProperty(myObj , "prop1" , {
+//     writable : false,
+//     configurable : true
+// })
+
+// //now the value can be replaced only with defineProperty() but can not done by assignment operator
+
+// Object.defineProperty(myObj , "prop1" , {
+//     value : 10
+// })
+
+// console.log(myObj.prop1);
+
+//myObj.prop1 = 23; --> not possible
+
+//constructor function
+// function getTemperature(){
+//     let temperature = null;
+//     const tempArr = [];
+
+//     Object.defineProperty(this , "temperature" , {
+//         get(){
+//             console.log("temperature");
+//             return temperature;
+//         },
+//         set(newTemperature){
+//             temperature = newTemperature;
+//             tempArr.push({val : newTemperature})
+//         }
+//     })
+
+//     this.showTemp = ()=>{
+//         console.log(tempArr);
+//     }
+// }
+
+// const tempObj = new getTemperature();
+// //console.log(tempObj.temperature);
+// tempObj.temperature = 10;
+// tempObj.temperature = 16;
+// console.log(tempObj.temperature);
+
+// tempObj.showTemp();
