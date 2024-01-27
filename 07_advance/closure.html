@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure and Lexical scoping</title>
+</head>
+<body style="background-color: #414141;">
+    
+
+    <script>
+
+        //This is lexical scope
+        // function outer(){
+        //     let username = "sudipta";
+            
+        //     function inner(){
+        //         let password = "12345";
+        //         console.log(username);
+        //     }
+        //     function innerTwo(){
+        //         console.log("My user name is " , username);
+        //         //console.log(password); brother and sister does not share between them
+        //     }
+        //     inner();
+        //     innerTwo();
+        //     //console.log(password); this is not allowed parent cannot take child's icecream
+        // }
+        // outer();
+
+        //closure
+
+        // function outer(){
+        //     let name = "sudipta";
+        //     function inner(){
+        //         console.log(`My name is ${name}`);
+        //     }
+        //     //I am going to return the function reference itself
+        //     return inner;
+        // }
+
+        // const myFunc = outer();
+        // //now try to understand here if I am giving only the refernce of inner() then inside that "name" should be undefined and we will get error . But because of lexical scoping when we return inner() , not only the inner reference is returning it returns the whole lexical scope that means alongwith the ouetr() . 
+        // myFunc();
+
+        //Practical example
+        const yellowButton = document.createElement("button");
+        yellowButton.innerText = "yellow";
+        yellowButton.id = "yellow";
+        const orangeButton = document.createElement("button");
+        orangeButton.innerText = "orange";
+        orangeButton.id = "orange";
+
+        //document.body.appendChild(yellowButton);
+        document.body.append(orangeButton,yellowButton);
+
+        //onclick event
+
+        function clickHandler(color){
+            //document.body.style.backgroundColor = `${color}`;
+
+            return function changeColor(){
+                document.body.style.backgroundColor = `${color}`;
+            }
+        }
+        document.getElementById("yellow").onclick = clickHandler("yellow");
+        document.getElementById("orange").onclick = clickHandler("orange");
+
+        
+        
+    </script>
+</body>
+</html>
